@@ -1,295 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Physique Physicians™ – Progressive Overload Guide</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Physique Physicians™ – Progressive Overload</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <div class="page-bg"></div>
+  <div class="grain"></div>
 
-<div class="page">
+  <div class="container">
 
-  <!-- HEADER -->
-  <header class="hero">
-    <h1 class="brand">physique physicians</h1>
-
-    <div class="pp-spinner">
-      <img src="pp-mark.png" alt="Physique Physicians mark">
-    </div>
-
-    <p class="subhead">Strength Training • Progressive Overload</p>
-  </header>
-
-  <!-- PROGRESSION CHECK (SEPARATE DROPDOWN) -->
-  <section class="card progression">
-    <h2>Progression Check</h2>
-    <p class="muted">Enter your top set details to get your next-step recommendation.</p>
-
-    <div class="form-grid">
-      <div>
-        <label>Working weight</label>
-        <input id="pcWeight" type="number" inputmode="decimal" placeholder="e.g. 135">
+    <!-- HEADER -->
+    <header class="brand">
+      <div class="brand-mark">
+        physique physicians<span class="tm">™</span>
       </div>
 
-      <div>
-        <label>Reps achieved</label>
-        <input id="pcReps" type="number" inputmode="numeric" placeholder="e.g. 8">
+      <div class="subtitle-stack">
+        <div class="subtitle-line">STRENGTH TRAINING PROTOCOLS</div>
+        <div class="loader-inline" aria-hidden="true"></div>
+        <div class="subtitle-line">PROGRESSIVE OVERLOAD</div>
+      </div>
+    </header>
+
+    <!-- PROGRESSION CHECK (MOVED TO TOP) -->
+    <section class="panel calc-panel">
+      <div class="calc-head">
+        <div>
+          <div class="section-header calc-title">PROGRESSION CHECK</div>
+          <div class="calc-sub">Enter your top set details → get your next-step recommendation.</div>
+        </div>
       </div>
 
-      <div>
-        <label>Prescribed rep target</label>
-        <select id="pcTarget">
-          <option value="8">8 reps (5–8)</option>
-          <option value="10">10 reps (6–10)</option>
-          <option value="12">12 reps (7–12)</option>
-          <option value="15">15 reps (9–15)</option>
-          <option value="20">20 reps (14–20)</option>
-        </select>
-      </div>
-
-      <div class="checkbox">
-        <label>
-          <input id="pcFailure" type="checkbox">
-          Reached technical failure
+      <div class="calc-grid">
+        <label class="field">
+          <span class="field-label">Working weight (lbs or kg)</span>
+          <input id="workWeight" class="input" type="number" inputmode="decimal" placeholder="e.g., 135" />
         </label>
-        <span class="hint">Last clean rep with good form.</span>
-      </div>
-    </div>
 
-    <div id="pcResult" class="result-box">
-      Enter details above to receive your recommendation.
-    </div>
-  </section>
+        <label class="field">
+          <span class="field-label">Reps achieved</span>
+          <input id="repsAchieved" class="input" type="number" inputmode="numeric" placeholder="e.g., 8" />
+        </label>
 
-  <!-- MAIN GRID -->
-  <div class="grid">
-
-    <!-- COLUMN 1 -->
-    <section class="card">
-      <h2>01 // Warm-Ups (What to Do + Why)</h2>
-
-      <p><strong>Get warm first:</strong> walk on a treadmill for 5–10 minutes, then follow the 5-minute warm-up video at the top of your training program.</p>
-
-      <p class="label">Use the 5–3–3–1 method for:</p>
-      <ul>
-        <li>RDLs & any deadlift variation</li>
-        <li>Hip thrusts</li>
-        <li>Leg press</li>
-        <li>Squats & any squat variation</li>
-      </ul>
-
-      <div class="warmup">
-        <div>SET 01<span>5 reps @ 40–50%</span></div>
-        <div>SET 02<span>3 reps @ 60%</span></div>
-        <div>SET 03<span>3 reps @ 70%</span></div>
-        <div>SET 04<span>1 rep @ 80–90%</span></div>
-      </div>
-
-      <p class="muted">Do not skip the single. If rushing, skip one of the 3s before skipping the 1.</p>
-
-      <p><strong>All other exercises:</strong> 1 solid warm-up set using 60–70% of your first working set for 5–7 reps.</p>
-
-      <p class="muted">Goal: prime the movement + nervous system — not stretch.</p>
-    </section>
-
-    <!-- COLUMN 2 -->
-    <section class="card">
-      <h2>02 // Overload Logic</h2>
-
-      <div class="logic">
-        <div class="logic-box">Did you hit the rep range?</div>
-
-        <div class="logic-grid">
-          <div class="logic-card bad">
-            <h3>Below Range</h3>
-            <p>Treat as warm-up<br>Reduce load → repeat</p>
-          </div>
-
-          <div class="logic-card good">
-            <h3>In Range</h3>
-            <p>Perfect execution<br>Next session: +3–5%</p>
-          </div>
-
-          <div class="logic-card up">
-            <h3>Above Range</h3>
-            <p>Under-loaded<br>Next session: +5–10%</p>
-          </div>
+        <div class="field">
+          <span class="field-label">Prescribed reps (from your program)</span>
+          <select id="prescribedTarget" class="select" aria-label="Prescribed reps">
+            <option value="8">8 (range 5–8)</option>
+            <option value="10">10 (range 6–10)</option>
+            <option value="12">12 (range 7–12)</option>
+            <option value="15">15 (range 9–15)</option>
+            <option value="20">20 (range 14–20)</option>
+          </select>
+          <div class="hint">This dropdown is separate from the rep buttons in Column 3.</div>
         </div>
 
-        <div class="logic-footer">
-          Rest 2–3 min → repeat set to technical failure (if prescribed)
+        <div class="field">
+          <span class="field-label">Did you reach technical failure?</span>
+          <label class="toggle">
+            <input id="techFailure" type="checkbox" />
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">Yes</span>
+          </label>
+          <div class="hint">
+            Meaning: you couldn’t do another rep with good form & technique.
+          </div>
         </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="result-title">RESULT</div>
+        <div id="resultText" class="result-text">
+          Enter your working weight + reps achieved to get a recommendation.
+        </div>
+        <div id="resultMeta" class="result-meta"></div>
       </div>
     </section>
 
-    <!-- COLUMN 3 (TAP-INTERACTIVE) -->
-    <section class="card">
-      <h2>03 // Rep Targets</h2>
+    <!-- GRID -->
+    <main class="grid-layout">
 
-      <p class="muted rep-hint">Tap the rep range you’re working in.</p>
+      <!-- COLUMN 1 -->
+      <section class="panel">
+        <div class="section-header">01 // WARM-UPS (WHAT TO DO + WHY)</div>
 
-      <div class="rep-pills" role="tablist" aria-label="Rep targets">
-        <button class="rep-pill is-active" data-target="8" data-range="5–8" type="button" role="tab" aria-selected="true">
-          <span class="rep-pill-left">8 reps</span>
-          <span class="rep-pill-right">5–8</span>
-        </button>
+        <div class="cmd-item">
+          <span class="cmd-title">&gt; GET WARM</span>
+          Walk on the treadmill for <b>5–10 minutes</b>, then follow the <b>5-minute warm-up video link</b>
+          located at the <b>top of your training program</b>.
+        </div>
 
-        <button class="rep-pill" data-target="10" data-range="6–10" type="button" role="tab" aria-selected="false">
-          <span class="rep-pill-left">10 reps</span>
-          <span class="rep-pill-right">6–10</span>
-        </button>
+        <div class="cmd-item">
+          <span class="cmd-title">&gt; 5–3–3–1 WARM-UP METHOD</span>
+          Use this method for:
+          <ul class="bullets">
+            <li><b>RDL</b> and any <b>deadlift variation</b></li>
+            <li><b>Hip thrusts</b></li>
+            <li><b>Leg press</b></li>
+            <li><b>Squat</b> and any <b>squat variation</b></li>
+          </ul>
 
-        <button class="rep-pill" data-target="12" data-range="7–12" type="button" role="tab" aria-selected="false">
-          <span class="rep-pill-left">12 reps</span>
-          <span class="rep-pill-right">7–12</span>
-        </button>
-
-        <button class="rep-pill" data-target="15" data-range="9–15" type="button" role="tab" aria-selected="false">
-          <span class="rep-pill-left">15 reps</span>
-          <span class="rep-pill-right">9–15</span>
-        </button>
-
-        <button class="rep-pill" data-target="20" data-range="14–20" type="button" role="tab" aria-selected="false">
-          <span class="rep-pill-left">20 reps</span>
-          <span class="rep-pill-right">14–20</span>
-        </button>
-      </div>
-
-      <div class="rep-panel">
-        <div class="rep-panel-top">
-          <div>
-            <div class="tiny-label">Working range</div>
-            <div id="repRange" class="big-val">5–8</div>
+          <div class="warmup-table">
+            <div class="warmup-row">
+              <span class="tag">SET 01</span>
+              <span>5 reps @ 40–50% of 1st working set</span>
+            </div>
+            <div class="warmup-row">
+              <span class="tag">SET 02</span>
+              <span>3 reps @ 60% of 1st working set</span>
+            </div>
+            <div class="warmup-row">
+              <span class="tag">SET 03</span>
+              <span>3 reps @ 70% of 1st working set</span>
+            </div>
+            <div class="warmup-row strong">
+              <span class="tag">SET 04</span>
+              <span>1 rep @ 80–90% of 1st working set</span>
+            </div>
           </div>
-          <div class="rep-target">
-            <div class="tiny-label">Target</div>
-            <div id="repTarget" class="big-val">8</div>
+
+          <div class="note">
+            Don’t skip the <b>single</b>. If you’re rushing, skip one of the “3s” before you skip the 1.
           </div>
         </div>
 
-        <div id="repAdvice" class="rep-advice">
-          <div class="advice-box">
-            <strong>If you can do target+ clean</strong>
-            <div class="muted">Next session: increase load ~3–5%.</div>
+        <div class="cmd-item">
+          <span class="cmd-title">&gt; ALL OTHER EXERCISES</span>
+          For all other exercises, <b>1 solid warm-up set</b> is enough:
+          use <b>60–70%</b> of your first working set weight for <b>5–7 reps</b>.
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="cmd-item">
+          <span class="cmd-title">&gt; WHY THIS MATTERS</span>
+          The goal is to get warm + prime the movement pattern and nervous system — not to “stretch.”
+          A stretched muscle isn’t a strong muscle.
+        </div>
+      </section>
+
+      <!-- COLUMN 2 -->
+      <section class="panel">
+        <div class="section-header">02 // OVERLOAD LOGIC</div>
+
+        <div class="logic-box logic-top">
+          <div class="logic-label">OBJECTIVE</div>
+          <div class="logic-title">PROGRESSIVE OVERLOAD</div>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="logic-box logic-mid">
+          TOP SET: DID YOU HIT THE REP RANGE?
+        </div>
+
+        <div class="triple">
+          <div class="triple-box warn">
+            <div class="triple-title">BELOW RANGE</div>
+            <div class="triple-sub">Load too heavy today</div>
+            <div class="triple-body">
+              Treat as additional warm-up.<br>
+              Reduce load → repeat top set.
+            </div>
           </div>
 
-          <div class="advice-box">
-            <strong>If you’re below the floor</strong>
-            <div class="muted">Treat as warm-up → reduce load → repeat top set.</div>
+          <div class="triple-box good">
+            <div class="triple-title">IN RANGE</div>
+            <div class="triple-sub">Perfect execution</div>
+            <div class="triple-body">
+              Next session:<br>
+              Increase load <b>~3–5%</b>.
+            </div>
           </div>
 
-          <div class="advice-box">
-            <strong>If you could do way more</strong>
-            <div class="muted">Stop early → treat as warm-up → go heavier for the real set.</div>
-          </div>
-
-          <div id="repRule" class="rep-rule muted">
-            If your program says <strong>3×8</strong>, your reps should live in <strong>5–8</strong> and sets shouldn’t drop below <strong>5</strong>.
-          </div>
-
-          <hr class="soft-hr">
-
-          <div class="footnote">
-            Triple progression: improve <strong>control/technique</strong> → add <strong>reps</strong> → then add <strong>weight</strong> → repeat.
+          <div class="triple-box light">
+            <div class="triple-title">ABOVE RANGE</div>
+            <div class="triple-sub">Under-loaded</div>
+            <div class="triple-body">
+              Next session:<br>
+              Increase load <b>5–10%</b>.
+            </div>
           </div>
         </div>
-      </div>
 
-    </section>
+        <div class="arrow">↓</div>
+
+        <div class="logic-box logic-bottom">
+          REST 2–3 MIN → REPEAT SET TO TECHNICAL FAILURE (IF PRESCRIBED)
+        </div>
+
+        <div class="microcopy">
+          Technical failure = the last rep you can complete with good form and technique.
+          Don’t chase extra reps if form gets sloppy.
+        </div>
+      </section>
+
+      <!-- COLUMN 3 -->
+      <section class="panel">
+        <div class="section-header">03 // REP TARGETS (HOW TO USE THEM)</div>
+
+        <div class="rep-topline">
+          Tap the rep target you’re working in:
+        </div>
+
+        <div class="rep-tabs" role="tablist" aria-label="Rep targets">
+          <button class="rep-tab active" data-target="8" role="tab" aria-selected="true">8</button>
+          <button class="rep-tab" data-target="10" role="tab" aria-selected="false">10</button>
+          <button class="rep-tab" data-target="12" role="tab" aria-selected="false">12</button>
+          <button class="rep-tab" data-target="15" role="tab" aria-selected="false">15</button>
+          <button class="rep-tab" data-target="20" role="tab" aria-selected="false">20</button>
+        </div>
+
+        <div class="rep-card">
+          <div class="rep-card-top">
+            <div>
+              <div class="rep-small">WORKING RANGE</div>
+              <div id="repRange" class="rep-big">5–8</div>
+            </div>
+            <div class="rep-right">
+              <div class="rep-small">TARGET</div>
+              <div id="repTarget" class="rep-big">8</div>
+            </div>
+          </div>
+
+          <div id="repBlurb" class="rep-blurb">
+            If you can do <b>target+</b> clean → load was light.<br>
+            Next session: increase load <b>~3–5%</b>.
+          </div>
+
+          <div class="rep-rules">
+            <div class="rule">
+              <div class="rule-title">If you’re below the floor</div>
+              <div class="rule-body">Treat as warm-up → reduce load → repeat top set.</div>
+            </div>
+            <div class="rule">
+              <div class="rule-title">If you could do way more</div>
+              <div class="rule-body">Stop early → treat as warm-up → go heavier for the real set.</div>
+            </div>
+          </div>
+
+          <div id="repExample" class="rep-example">
+            If your program says <b>3×8</b>, your reps should live in <b>5–8</b> and sets shouldn’t drop below <b>5</b>.
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="triple-prog">
+          Triple progression: improve <b>control/technique</b> → add <b>reps</b> to the top of the range → then add <b>weight</b> and repeat.
+        </div>
+      </section>
+
+    </main>
 
   </div>
-</div>
 
-<script>
-  // Column 3: Tap-interactive rep targets (DOES NOT affect Progression Check dropdown)
-  const repButtons = Array.from(document.querySelectorAll('.rep-pill'));
-  const repRangeEl = document.getElementById('repRange');
-  const repTargetEl = document.getElementById('repTarget');
-  const repRuleEl = document.getElementById('repRule');
+  <script>
+    // Rep targets map (PP version)
+    const repMap = {
+      8:  { range: "5–8",  floor: 5, top: 8 },
+      10: { range: "6–10", floor: 6, top: 10 },
+      12: { range: "7–12", floor: 7, top: 12 },
+      15: { range: "9–15", floor: 9, top: 15 },
+      20: { range: "14–20", floor: 14, top: 20 }
+    };
 
-  function setRep(target, range){
-    repTargetEl.textContent = target;
-    repRangeEl.textContent = range;
+    /* ---------------------------
+       Column 3 (rep education only)
+    ---------------------------- */
+    let repExplainerSelected = 8;
 
-    // Update the example rule line
-    repRuleEl.innerHTML = `If your program says <strong>3×${target}</strong>, your reps should live in <strong>${range}</strong> and sets shouldn’t drop below <strong>${range.split('–')[0]}</strong>.`;
-  }
+    const repRangeEl = document.getElementById("repRange");
+    const repTargetEl = document.getElementById("repTarget");
+    const repBlurbEl  = document.getElementById("repBlurb");
+    const repExampleEl = document.getElementById("repExample");
 
-  repButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      repButtons.forEach(b => {
-        b.classList.remove('is-active');
-        b.setAttribute('aria-selected','false');
+    const tabs = Array.from(document.querySelectorAll(".rep-tab"));
+
+    function setRepExplainer(t) {
+      repExplainerSelected = t;
+
+      tabs.forEach(btn => {
+        const isActive = Number(btn.dataset.target) === t;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-selected", isActive ? "true" : "false");
       });
-      btn.classList.add('is-active');
-      btn.setAttribute('aria-selected','true');
 
-      setRep(btn.dataset.target, btn.dataset.range);
+      const cfg = repMap[t];
+      repRangeEl.textContent = cfg.range;
+      repTargetEl.textContent = String(t);
+
+      repBlurbEl.innerHTML =
+        `If you can do <b>${t}+</b> clean → load was light.<br>Next session: increase load <b>~3–5%</b>.`;
+
+      repExampleEl.innerHTML =
+        `If your program says <b>3×${t}</b>, your reps should live in <b>${cfg.range}</b> and sets shouldn’t drop below <b>${cfg.floor}</b>.`;
+    }
+
+    tabs.forEach(btn => {
+      btn.addEventListener("click", () => {
+        setRepExplainer(Number(btn.dataset.target));
+      });
     });
-  });
 
-  // Progression Check (simple vibe-matching output; expand later if you want)
-  const pcWeight = document.getElementById('pcWeight');
-  const pcReps = document.getElementById('pcReps');
-  const pcTarget = document.getElementById('pcTarget');
-  const pcFailure = document.getElementById('pcFailure');
-  const pcResult = document.getElementById('pcResult');
+    setRepExplainer(8);
 
-  const ranges = {
-    8:  { min: 5,  max: 8,  up: "3–5%"  },
-    10: { min: 6,  max: 10, up: "3–5%" },
-    12: { min: 7,  max: 12, up: "3–5%" },
-    15: { min: 9,  max: 15, up: "3–5%" },
-    20: { min: 14, max: 20, up: "3–5%" }
-  };
+    /* ---------------------------
+       Progression Check (separate dropdown)
+    ---------------------------- */
+    const workWeight = document.getElementById("workWeight");
+    const repsAchieved = document.getElementById("repsAchieved");
+    const techFailure = document.getElementById("techFailure");
+    const prescribedTarget = document.getElementById("prescribedTarget");
+    const resultText = document.getElementById("resultText");
+    const resultMeta = document.getElementById("resultMeta");
 
-  function calc(){
-    const w = Number(pcWeight.value);
-    const r = Number(pcReps.value);
-    const t = Number(pcTarget.value);
-    const hitFailure = pcFailure.checked;
-
-    if(!w || !r || !t){
-      pcResult.textContent = "Enter details above to receive your recommendation.";
-      return;
+    function pct(n) {
+      return Math.round(n * 10) / 10;
     }
 
-    const { min, max, up } = ranges[t];
+    function runCalc() {
+      const w = Number(workWeight.value);
+      const r = Number(repsAchieved.value);
+      const tf = techFailure.checked;
+      const t = Number(prescribedTarget.value);
 
-    if(r < min){
-      pcResult.innerHTML = `<strong>Below floor (${min}).</strong> Treat that set as a warm-up, reduce load, and repeat your top set in range.`;
-      return;
-    }
-
-    if(r > max){
-      pcResult.innerHTML = `<strong>Above range (${max}+).</strong> Under-loaded. Next session, increase load ~5–10% (or the smallest jump available).`;
-      return;
-    }
-
-    // In range
-    if(hitFailure){
-      if(r === max){
-        pcResult.innerHTML = `<strong>In range + hit the top.</strong> Next session: increase load ~${up}.`;
-      }else{
-        pcResult.innerHTML = `<strong>In range.</strong> Next session: aim to add reps toward <strong>${max}</strong> at the same load — then increase weight.`;
+      if (!w || !r || !t) {
+        resultText.textContent = "Enter your working weight + reps achieved to get a recommendation.";
+        resultMeta.textContent = "";
+        return;
       }
-    }else{
-      pcResult.innerHTML = `<strong>In range, but you stopped early.</strong> Next time, push closer to technical failure first. If you can reach <strong>${max}</strong> clean, then increase load.`;
+
+      const cfg = repMap[t];
+
+      // Too heavy (below floor)
+      if (r < cfg.floor) {
+        const drop = Math.max(5, Math.min(15, Math.round(((cfg.floor - r) / cfg.floor) * 100)));
+        resultText.innerHTML =
+          `<b>Too heavy for today.</b> Treat that as a warm-up and drop the load, then repeat your top set.`;
+        resultMeta.textContent =
+          `Suggested drop: ~${drop}% (aim to land back in ${cfg.range}).`;
+        return;
+      }
+
+      // In-range but not technical failure
+      if (r >= cfg.floor && r <= cfg.top && !tf) {
+        resultText.innerHTML =
+          `<b>In range — but stop-short.</b> Keep the same load next time and push closer to technical failure (clean reps).`;
+        resultMeta.textContent =
+          `Goal: your last rep should look like it’s basically the last clean rep you had.`;
+        return;
+      }
+
+      // In-range and hit technical failure
+      if (r >= cfg.floor && r <= cfg.top && tf) {
+        const upLow = pct(w * 0.03);
+        const upHigh = pct(w * 0.05);
+        resultText.innerHTML =
+          `<b>Perfect.</b> Next session, increase load slightly.`;
+        resultMeta.textContent =
+          `Suggested increase: ~3–5% → ${upLow}–${upHigh} more (same units).`;
+        return;
+      }
+
+      // Above range (under-loaded)
+      if (r > cfg.top) {
+        const upLow = pct(w * 0.05);
+        const upHigh = pct(w * 0.10);
+        resultText.innerHTML =
+          `<b>Under-loaded.</b> You exceeded the target range — go heavier next session.`;
+        resultMeta.textContent =
+          `Suggested increase: ~5–10% → ${upLow}–${upHigh} more (same units).`;
+        return;
+      }
+
+      resultText.textContent = "Log looks unusual — double-check inputs.";
+      resultMeta.textContent = "";
     }
-  }
 
-  [pcWeight, pcReps, pcTarget, pcFailure].forEach(el => el.addEventListener('input', calc));
-  pcFailure.addEventListener('change', calc);
-</script>
+    [workWeight, repsAchieved, techFailure, prescribedTarget].forEach(el => {
+      el.addEventListener("input", runCalc);
+      el.addEventListener("change", runCalc);
+    });
 
+    runCalc();
+  </script>
 </body>
 </html>
