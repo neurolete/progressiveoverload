@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Neurolete™ – Progressive Overload</title>
+  <meta charset="UTF-8">
+  <title>Physique Physicians™ – Progressive Overload Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -16,145 +16,141 @@
 
 <body>
 
-  <div class="container">
+<div class="page">
 
-    <header class="hero">
-      <h1 class="brand">neuro<span class="logo-bold">lete</span></h1>
-      <div class="subtitle">
-        <span>STRENGTH TRAINING PROTOCOLS</span>
-        <div class="loader" aria-hidden="true"></div>
-        <span>PROGRESSIVE OVERLOAD</span>
+  <!-- HEADER -->
+  <header class="hero">
+    <h1 class="brand">physique physicians</h1>
+    <div class="pp-spinner">
+      <img src="pp-mark.png" alt="Physique Physicians mark">
+    </div>
+    <p class="subhead">Strength Training • Progressive Overload</p>
+  </header>
+
+  <!-- PROGRESSION CHECK -->
+  <section class="card progression">
+    <h2>Progression Check</h2>
+    <p class="muted">Enter your top set details to get your next-step recommendation.</p>
+
+    <div class="form-grid">
+      <div>
+        <label>Working weight</label>
+        <input type="number" placeholder="e.g. 135">
       </div>
-    </header>
 
-    <main class="grid-layout">
+      <div>
+        <label>Reps achieved</label>
+        <input type="number" placeholder="e.g. 8">
+      </div>
 
-      <!-- COLUMN 1 -->
-      <section>
-        <div class="section-header">01 // INITIALIZATION</div>
+      <div>
+        <label>Prescribed rep target</label>
+        <select>
+          <option>8 reps (5–8)</option>
+          <option>10 reps (6–10)</option>
+          <option>12 reps (7–12)</option>
+          <option>15 reps (9–15)</option>
+          <option>20 reps (14–20)</option>
+        </select>
+      </div>
 
-        <div class="cmd-item">
-          <span class="cmd-title">&gt; ESTIMATE LOAD</span>
-          Choose a load expected to fail within the prescribed rep range.
-        </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          Reached technical failure
+        </label>
+        <span class="hint">Last clean rep with good form.</span>
+      </div>
+    </div>
 
-        <div class="cmd-item">
-          <span class="cmd-title">&gt; NEURAL PRIMING</span>
-          Execute CNS activation sets if applicable.
-          <span class="cmd-green">See Section 03.</span>
-        </div>
+    <div class="result-box">
+      Enter details above to receive your recommendation.
+    </div>
+  </section>
 
-        <div class="cmd-item">
-          <span class="cmd-title">&gt; TOP SET EXECUTION</span>
-          Perform AMRAP with strict mechanical integrity.
-          <span class="cmd-green">No grinders.</span>
-        </div>
+  <!-- MAIN GRID -->
+  <div class="grid">
 
-        <div class="cmd-item">
-          <span class="cmd-title">&gt; VERIFY OUTPUT</span>
-          Compare achieved reps to the target range.
-        </div>
-      </section>
+    <!-- COLUMN 1 -->
+    <section class="card">
+      <h2>01 // Warm-Ups (What to Do + Why)</h2>
 
-      <!-- COLUMN 2 -->
-      <section>
-        <div class="section-header">02 // OVERLOAD LOGIC</div>
+      <p><strong>Get warm first:</strong> walk on a treadmill for 5–10 minutes, then follow the 5-minute warm-up video at the top of your training program.</p>
 
-        <div class="logic-box logic-box--bright">OBJECTIVE: PROGRESSIVE OVERLOAD</div>
+      <p class="label">Use the 5–3–3–1 method for:</p>
+      <ul>
+        <li>RDLs & any deadlift variation</li>
+        <li>Hip thrusts</li>
+        <li>Leg press</li>
+        <li>Squats & any squat variation</li>
+      </ul>
 
-        <div class="arrow">↓</div>
+      <div class="warmup">
+        <div>SET 01<span>5 reps @ 40–50%</span></div>
+        <div>SET 02<span>3 reps @ 60%</span></div>
+        <div>SET 03<span>3 reps @ 70%</span></div>
+        <div>SET 04<span>1 rep @ 80–90%</span></div>
+      </div>
 
-        <div class="logic-box">TOP SET: DID YOU HIT THE REP RANGE?</div>
+      <p class="muted">Do not skip the single. If rushing, skip one of the 3s before skipping the 1.</p>
 
-        <div class="tri-container">
+      <p><strong>All other exercises:</strong> 1 solid warm-up set using 60–70% of your first working set for 5–7 reps.</p>
 
-          <div class="tri-box tri-bad">
-            <div class="tri-title">BELOW<br>RANGE</div>
-            <div class="tri-sub">Load too heavy today</div>
-            <div class="tri-body">
-              Treat as additional warm-up<br>
-              Reduce load → repeat top set
-            </div>
+      <p class="muted">Goal: prime the movement + nervous system — not stretch.</p>
+    </section>
+
+    <!-- COLUMN 2 -->
+    <section class="card">
+      <h2>02 // Overload Logic</h2>
+
+      <div class="logic">
+        <div class="logic-box">Did you hit the rep range?</div>
+
+        <div class="logic-grid">
+          <div class="logic-card bad">
+            <h3>Below Range</h3>
+            <p>Treat as warm-up<br>Reduce load → repeat</p>
           </div>
 
-          <div class="tri-box tri-good">
-            <div class="tri-title">IN RANGE</div>
-            <div class="tri-sub">Perfect execution</div>
-            <div class="tri-body">
-              Next session:<br>
-              Increase load ~3–5%
-            </div>
+          <div class="logic-card good">
+            <h3>In Range</h3>
+            <p>Perfect execution<br>Next session: +3–5%</p>
           </div>
 
-          <div class="tri-box tri-mid">
-            <div class="tri-title">ABOVE<br>RANGE</div>
-            <div class="tri-sub">Under-loaded</div>
-            <div class="tri-body">
-              Next session:<br>
-              Increase load 5–10%
-            </div>
+          <div class="logic-card up">
+            <h3>Above Range</h3>
+            <p>Under-loaded<br>Next session: +5–10%</p>
           </div>
-
         </div>
 
-        <div class="arrow arrow--down">↓</div>
-
-        <div class="logic-box logic-box--wide">
-          REST 2–3 MIN → REPEAT SET TO TECHNICAL FAILURE<br>
-          <span class="muted">(IF PRESCRIBED)</span>
+        <div class="logic-footer">
+          Rest 2–3 min → repeat set to technical failure (if prescribed)
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- COLUMN 3 -->
-      <section>
-        <div class="section-header">03 // WARM UP – CNS ACTIVATION<br>(COMPOUND LIFTS ONLY)</div>
+    <!-- COLUMN 3 -->
+    <section class="card">
+      <h2>03 // Rep Targets</h2>
+      <p class="muted">Tap the rep range you’re working in.</p>
 
-        <!-- THIS IS THE "OLD" IMAGERY BACK -->
-        <div class="brain-scan" aria-hidden="true">
-          <div class="scan-line"></div>
-        </div>
-
-        <div class="protocol-note">PROTOCOL: 5–3–3–1</div>
-
-        <div class="data-row"><span>SET 01</span><span>5 REPS @ 50%</span></div>
-        <div class="data-row"><span>SET 02</span><span>3 REPS @ 60%</span></div>
-        <div class="data-row"><span>SET 03</span><span>3 REPS @ 70%</span></div>
-        <div class="data-row data-row--final">
-          <span>SET 04</span><span>1 REP @ 90%</span>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="output-bar">
-        <span class="output-val">PRESCRIBED REP TARGET: 8</span>
-        <span>RANGE TO WORK IN: 5–8</span>
+      <div class="rep-list">
+        <div><strong>8 reps</strong><span>5–8</span></div>
+        <div><strong>10 reps</strong><span>6–10</span></div>
+        <div><strong>12 reps</strong><span>7–12</span></div>
+        <div><strong>15 reps</strong><span>9–15</span></div>
+        <div><strong>20 reps</strong><span>14–20</span></div>
       </div>
 
-      <div class="output-bar">
-        <span class="output-val">PRESCRIBED REP TARGET: 12</span>
-        <span>RANGE TO WORK IN: 9–12</span>
-      </div>
+      <p class="muted">If you can exceed the top clean → load was light.<br>Add reps, then add weight.</p>
 
-      <div class="output-bar">
-        <span class="output-val">PRESCRIBED REP TARGET: 15</span>
-        <span>RANGE TO WORK IN: 12–15</span>
-      </div>
-
-      <div class="output-bar">
-        <span class="output-val">PRESCRIBED REP TARGET: 20</span>
-        <span>RANGE TO WORK IN: 15–20</span>
-      </div>
-    </footer>
+      <p class="footnote">
+        Triple progression: improve control → add reps → add weight → repeat.
+      </p>
+    </section>
 
   </div>
+</div>
 
 </body>
 </html>
-
-
-</body>
-</html>
-
