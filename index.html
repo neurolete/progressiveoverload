@@ -21,13 +21,15 @@
   <!-- HEADER -->
   <header class="hero">
     <h1 class="brand">physique physicians</h1>
+
     <div class="pp-spinner">
       <img src="pp-mark.png" alt="Physique Physicians mark">
     </div>
+
     <p class="subhead">Strength Training • Progressive Overload</p>
   </header>
 
-  <!-- PROGRESSION CHECK -->
+  <!-- PROGRESSION CHECK (SEPARATE DROPDOWN) -->
   <section class="card progression">
     <h2>Progression Check</h2>
     <p class="muted">Enter your top set details to get your next-step recommendation.</p>
@@ -35,35 +37,35 @@
     <div class="form-grid">
       <div>
         <label>Working weight</label>
-        <input type="number" placeholder="e.g. 135">
+        <input id="pcWeight" type="number" inputmode="decimal" placeholder="e.g. 135">
       </div>
 
       <div>
         <label>Reps achieved</label>
-        <input type="number" placeholder="e.g. 8">
+        <input id="pcReps" type="number" inputmode="numeric" placeholder="e.g. 8">
       </div>
 
       <div>
         <label>Prescribed rep target</label>
-        <select>
-          <option>8 reps (5–8)</option>
-          <option>10 reps (6–10)</option>
-          <option>12 reps (7–12)</option>
-          <option>15 reps (9–15)</option>
-          <option>20 reps (14–20)</option>
+        <select id="pcTarget">
+          <option value="8">8 reps (5–8)</option>
+          <option value="10">10 reps (6–10)</option>
+          <option value="12">12 reps (7–12)</option>
+          <option value="15">15 reps (9–15)</option>
+          <option value="20">20 reps (14–20)</option>
         </select>
       </div>
 
       <div class="checkbox">
         <label>
-          <input type="checkbox">
+          <input id="pcFailure" type="checkbox">
           Reached technical failure
         </label>
         <span class="hint">Last clean rep with good form.</span>
       </div>
     </div>
 
-    <div class="result-box">
+    <div id="pcResult" class="result-box">
       Enter details above to receive your recommendation.
     </div>
   </section>
@@ -129,28 +131,165 @@
       </div>
     </section>
 
-    <!-- COLUMN 3 -->
+    <!-- COLUMN 3 (TAP-INTERACTIVE) -->
     <section class="card">
       <h2>03 // Rep Targets</h2>
-      <p class="muted">Tap the rep range you’re working in.</p>
 
-      <div class="rep-list">
-        <div><strong>8 reps</strong><span>5–8</span></div>
-        <div><strong>10 reps</strong><span>6–10</span></div>
-        <div><strong>12 reps</strong><span>7–12</span></div>
-        <div><strong>15 reps</strong><span>9–15</span></div>
-        <div><strong>20 reps</strong><span>14–20</span></div>
+      <p class="muted rep-hint">Tap the rep range you’re working in.</p>
+
+      <div class="rep-pills" role="tablist" aria-label="Rep targets">
+        <button class="rep-pill is-active" data-target="8" data-range="5–8" type="button" role="tab" aria-selected="true">
+          <span class="rep-pill-left">8 reps</span>
+          <span class="rep-pill-right">5–8</span>
+        </button>
+
+        <button class="rep-pill" data-target="10" data-range="6–10" type="button" role="tab" aria-selected="false">
+          <span class="rep-pill-left">10 reps</span>
+          <span class="rep-pill-right">6–10</span>
+        </button>
+
+        <button class="rep-pill" data-target="12" data-range="7–12" type="button" role="tab" aria-selected="false">
+          <span class="rep-pill-left">12 reps</span>
+          <span class="rep-pill-right">7–12</span>
+        </button>
+
+        <button class="rep-pill" data-target="15" data-range="9–15" type="button" role="tab" aria-selected="false">
+          <span class="rep-pill-left">15 reps</span>
+          <span class="rep-pill-right">9–15</span>
+        </button>
+
+        <button class="rep-pill" data-target="20" data-range="14–20" type="button" role="tab" aria-selected="false">
+          <span class="rep-pill-left">20 reps</span>
+          <span class="rep-pill-right">14–20</span>
+        </button>
       </div>
 
-      <p class="muted">If you can exceed the top clean → load was light.<br>Add reps, then add weight.</p>
+      <div class="rep-panel">
+        <div class="rep-panel-top">
+          <div>
+            <div class="tiny-label">Working range</div>
+            <div id="repRange" class="big-val">5–8</div>
+          </div>
+          <div class="rep-target">
+            <div class="tiny-label">Target</div>
+            <div id="repTarget" class="big-val">8</div>
+          </div>
+        </div>
 
-      <p class="footnote">
-        Triple progression: improve control → add reps → add weight → repeat.
-      </p>
+        <div id="repAdvice" class="rep-advice">
+          <div class="advice-box">
+            <strong>If you can do target+ clean</strong>
+            <div class="muted">Next session: increase load ~3–5%.</div>
+          </div>
+
+          <div class="advice-box">
+            <strong>If you’re below the floor</strong>
+            <div class="muted">Treat as warm-up → reduce load → repeat top set.</div>
+          </div>
+
+          <div class="advice-box">
+            <strong>If you could do way more</strong>
+            <div class="muted">Stop early → treat as warm-up → go heavier for the real set.</div>
+          </div>
+
+          <div id="repRule" class="rep-rule muted">
+            If your program says <strong>3×8</strong>, your reps should live in <strong>5–8</strong> and sets shouldn’t drop below <strong>5</strong>.
+          </div>
+
+          <hr class="soft-hr">
+
+          <div class="footnote">
+            Triple progression: improve <strong>control/technique</strong> → add <strong>reps</strong> → then add <strong>weight</strong> → repeat.
+          </div>
+        </div>
+      </div>
+
     </section>
 
   </div>
 </div>
+
+<script>
+  // Column 3: Tap-interactive rep targets (DOES NOT affect Progression Check dropdown)
+  const repButtons = Array.from(document.querySelectorAll('.rep-pill'));
+  const repRangeEl = document.getElementById('repRange');
+  const repTargetEl = document.getElementById('repTarget');
+  const repRuleEl = document.getElementById('repRule');
+
+  function setRep(target, range){
+    repTargetEl.textContent = target;
+    repRangeEl.textContent = range;
+
+    // Update the example rule line
+    repRuleEl.innerHTML = `If your program says <strong>3×${target}</strong>, your reps should live in <strong>${range}</strong> and sets shouldn’t drop below <strong>${range.split('–')[0]}</strong>.`;
+  }
+
+  repButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      repButtons.forEach(b => {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-selected','false');
+      });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected','true');
+
+      setRep(btn.dataset.target, btn.dataset.range);
+    });
+  });
+
+  // Progression Check (simple vibe-matching output; expand later if you want)
+  const pcWeight = document.getElementById('pcWeight');
+  const pcReps = document.getElementById('pcReps');
+  const pcTarget = document.getElementById('pcTarget');
+  const pcFailure = document.getElementById('pcFailure');
+  const pcResult = document.getElementById('pcResult');
+
+  const ranges = {
+    8:  { min: 5,  max: 8,  up: "3–5%"  },
+    10: { min: 6,  max: 10, up: "3–5%" },
+    12: { min: 7,  max: 12, up: "3–5%" },
+    15: { min: 9,  max: 15, up: "3–5%" },
+    20: { min: 14, max: 20, up: "3–5%" }
+  };
+
+  function calc(){
+    const w = Number(pcWeight.value);
+    const r = Number(pcReps.value);
+    const t = Number(pcTarget.value);
+    const hitFailure = pcFailure.checked;
+
+    if(!w || !r || !t){
+      pcResult.textContent = "Enter details above to receive your recommendation.";
+      return;
+    }
+
+    const { min, max, up } = ranges[t];
+
+    if(r < min){
+      pcResult.innerHTML = `<strong>Below floor (${min}).</strong> Treat that set as a warm-up, reduce load, and repeat your top set in range.`;
+      return;
+    }
+
+    if(r > max){
+      pcResult.innerHTML = `<strong>Above range (${max}+).</strong> Under-loaded. Next session, increase load ~5–10% (or the smallest jump available).`;
+      return;
+    }
+
+    // In range
+    if(hitFailure){
+      if(r === max){
+        pcResult.innerHTML = `<strong>In range + hit the top.</strong> Next session: increase load ~${up}.`;
+      }else{
+        pcResult.innerHTML = `<strong>In range.</strong> Next session: aim to add reps toward <strong>${max}</strong> at the same load — then increase weight.`;
+      }
+    }else{
+      pcResult.innerHTML = `<strong>In range, but you stopped early.</strong> Next time, push closer to technical failure first. If you can reach <strong>${max}</strong> clean, then increase load.`;
+    }
+  }
+
+  [pcWeight, pcReps, pcTarget, pcFailure].forEach(el => el.addEventListener('input', calc));
+  pcFailure.addEventListener('change', calc);
+</script>
 
 </body>
 </html>
